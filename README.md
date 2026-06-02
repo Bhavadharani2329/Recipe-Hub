@@ -1,16 +1,66 @@
-# React + Vite
+# RecipeHub - Full-Stack Architecture
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, high-fidelity recipe exploration application with custom recipe manager, shopping lists, bookmark capabilities, active cooking timers, and dynamic cooking streaks.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+recipe-hub/
+├── frontend/             # React (Vite) Single Page Application
+│   ├── src/
+│   │   ├── assets/       # Styles, images, and fonts
+│   │   ├── components/   # Modular React components
+│   │   ├── config/       # Axios configuration (api.js)
+│   │   ├── contexts/     # Context providers (AuthContext.jsx)
+│   │   ├── hooks/        # Custom React hooks (useAuth.js, useFavorites.js, etc.)
+│   │   ├── layouts/      # Layout wrapper components (MainLayout.jsx)
+│   │   ├── pages/        # Core page routing targets (Home.jsx, AddRecipe.jsx, etc.)
+│   │   ├── routes/       # Unified routing declarations (AppRoutes.jsx)
+│   │   └── utils/        # Utility arrays and helper definitions (mockData.js)
+│   └── ...
+│
+└── backend/              # Node.js + Express.js backend API
+    ├── config/           # Database configurations (db.js)
+    ├── controllers/      # Route logic controller files
+    ├── middleware/       # Express route protections and middleware
+    ├── models/           # Mongoose MongoDB schemas
+    ├── routes/           # Routing definitions
+    ├── services/         # Achievement streak and reward services
+    ├── utils/            # JWT helper and signing functions
+    └── server.js         # Entrypoint file
+```
 
-## React Compiler
+## Running the Application
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Prerequisites
+Ensure you have **Node.js** and **MongoDB** installed and running on your host machine.
 
-## Expanding the ESLint configuration
+### 2. Backend Setup
+1. Open a terminal and navigate to the backend folder:
+   ```bash
+   cd backend
+   ```
+2. Install the backend dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the backend Express server:
+   ```bash
+   npm start
+   ```
+   The backend API will run on `http://localhost:5000/api`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. Frontend Setup
+1. Open a separate terminal and navigate to the frontend folder:
+   ```bash
+   cd frontend
+   ```
+2. Install the frontend dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite React development server:
+   ```bash
+   npm run dev
+   ```
+   Open the application in your browser at `http://localhost:5174/` (or the active port displayed in your terminal).
